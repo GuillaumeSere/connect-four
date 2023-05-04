@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import { Player } from '@lottiefiles/react-lottie-player';
+import animation from './78824-digit-four-animation-number-4.json';
 
 const ROWS = 6;
 const COLUMNS = 7;
@@ -139,7 +141,17 @@ function App() {
                 setPlayerTwoScore(0);
                 setWinner(null);
             }}>Start New Game</button>
-            <h1>Connect Four</h1>
+            <div className="title">
+                <h1>Puissance </h1>
+                <Player
+                    className='animation'
+                    autoplay
+                    loop
+                    src={animation}
+                    style={{ height: '100px', width: '100px' }}
+                >
+                </Player>
+            </div>
         </div>
     );
 }

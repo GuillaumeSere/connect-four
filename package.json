@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://guillaumesere.github.io/connect-four",
   "dependencies": {
+    "@lottiefiles/lottie-player": "^1.7.1",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

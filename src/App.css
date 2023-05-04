@@ -17,6 +17,13 @@
     justify-content: center;
     color: white;
 }
+.title{
+    display: flex;
+    align-items: center;
+}
+.animation{
+    margin-top: -1rem !important;
+}
 .board{
     display: flex;
     justify-content:center;
