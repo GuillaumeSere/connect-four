@@ -26,26 +26,37 @@ function App() {
         }
 
         const newBoard = [...board];
-        for (let row = ROWS - 1; row >= 0; row--) {
-            if (newBoard[row][column] === EMPTY) {
-                newBoard[row][column] = player;
-                setBoard(newBoard);
 
-                if (checkForWinner(newBoard, row, column)) {
-                    setWinner(player);
-                    if (player === PLAYER_ONE) {
-                        setPlayerOneScore(playerOneScore + 1);
-                    } else {
-                        setPlayerTwoScore(playerTwoScore + 1);
-                    }
-                } else {
-                    setPlayer(player === PLAYER_ONE ? PLAYER_TWO : PLAYER_ONE);
-                }
-
+        // Ajouter une boucle pour trouver la première case vide dans la colonne
+        let row = null;
+        for (let i = 0; i < ROWS; i++) {
+            if (newBoard[i][column] === EMPTY) {
+                row = i;
                 break;
             }
         }
+
+        // Vérifier que la colonne n'est pas pleine
+        if (row === null) {
+            return;
+        }
+
+        // Ajouter le pion dans la première case vide de la colonne
+        newBoard[row][column] = player;
+        setBoard(newBoard);
+
+        if (checkForWinner(newBoard, row, column)) {
+            setWinner(player);
+            if (player === PLAYER_ONE) {
+                setPlayerOneScore(playerOneScore + 1);
+            } else {
+                setPlayerTwoScore(playerTwoScore + 1);
+            }
+        } else {
+            setPlayer(player === PLAYER_ONE ? PLAYER_TWO : PLAYER_ONE);
+        }
     };
+
 
     const checkForWinner = (board, row, col) => {
         const player = board[row][col];

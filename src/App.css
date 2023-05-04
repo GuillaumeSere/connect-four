@@ -27,8 +27,8 @@
     margin-top: 2rem;
     height: 670px;
     width: 600px;
-    transform: rotate(90deg);
-    background: rgb(0, 128, 255);
+    transform: rotate(-90deg);
+    background: rgba(0, 128, 255, 0.558);
 }
 .row{
     margin: 0.5rem;
