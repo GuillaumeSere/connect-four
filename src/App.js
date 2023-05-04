@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import animation from './78824-digit-four-animation-number-4.json';
@@ -21,6 +21,20 @@ function App() {
     const [winner, setWinner] = useState(null);
     const [playerOneScore, setPlayerOneScore] = useState(0);
     const [playerTwoScore, setPlayerTwoScore] = useState(0);
+
+    // Utiliser useEffect pour stocker le score actuel dans le local storage chaque fois que le score change
+    useEffect(() => {
+        localStorage.setItem('connectFourScore', JSON.stringify({ playerOneScore, playerTwoScore }));
+    }, [playerOneScore, playerTwoScore]);
+
+    // Utiliser useEffect pour récupérer le score du local storage et l'utiliser pour initialiser les états playerOneScore et playerTwoScore
+    useEffect(() => {
+        const score = JSON.parse(localStorage.getItem('connectFourScore'));
+        if (score) {
+            setPlayerOneScore(score.playerOneScore);
+            setPlayerTwoScore(score.playerTwoScore);
+        }
+    }, []);
 
     const handleColumnClick = (column) => {
         if (winner !== null) {
@@ -121,6 +135,9 @@ function App() {
                         for (let row = 0; row < ROWS; row++) {
                             initialBoard[row] = Array(COLUMNS).fill(EMPTY);
                         }
+                        setPlayerOneScore(playerOneScore);
+                        setPlayerTwoScore(playerTwoScore);
+                        setWinner(null);
                         return initialBoard;
                     })}>New Game</button>
                 </div>
