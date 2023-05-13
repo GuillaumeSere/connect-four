@@ -71,6 +71,7 @@ function App() {
         } else {
             setPlayer(player === PLAYER_ONE ? PLAYER_TWO : PLAYER_ONE);
         }
+        
     };
 
 
