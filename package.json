@@ -2,6 +2,9 @@
   "name": "connect-four",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@lottiefiles/lottie-player": "^1.7.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
