@@ -657,6 +657,37 @@ function App() {
         </section>
       </section>
 
+      {winner !== null && (
+        <div
+          className="result-modal-backdrop"
+          role="presentation"
+          onClick={resetRound}
+        >
+          <div
+            className="result-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="result-modal-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <span className="control-label">Manche terminee</span>
+            <h2 id="result-modal-title">
+              {winner === DRAW
+                ? 'Match nul'
+                : `${getPlayerLabel(winner, mode)} a gagne`}
+            </h2>
+            <p>
+              {winner === DRAW
+                ? 'Aucun joueur ne marque cette manche.'
+                : 'Le score a ete ajoute. Vous pouvez continuer avec une nouvelle manche.'}
+            </p>
+            <button type="button" className="primary-action" onClick={resetRound}>
+              Continuer la partie
+            </button>
+          </div>
+        </div>
+      )}
+
       <footer className="app-footer">
         <span>Copyright 2026 Guillaume SERE. Tous droits reserves.</span>
       </footer>

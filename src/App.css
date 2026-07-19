@@ -432,6 +432,59 @@ button {
   background: rgba(255, 255, 255, 0.14);
 }
 
+.result-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  padding: 20px;
+  display: grid;
+  place-items: center;
+  background: rgba(7, 10, 17, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.result-modal {
+  width: min(420px, 100%);
+  padding: clamp(22px, 5vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(20, 24, 34, 0.96);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 14px;
+  text-align: center;
+}
+
+.result-modal h2,
+.result-modal p {
+  margin: 0;
+}
+
+.result-modal h2 {
+  font-size: clamp(1.8rem, 8vw, 2.6rem);
+  line-height: 1.05;
+}
+
+.result-modal p {
+  color: #e5e7eb;
+  line-height: 1.55;
+}
+
+.result-modal .primary-action {
+  min-height: 48px;
+  margin-top: 6px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.result-modal .primary-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(247, 200, 67, 0.28);
+}
+
 @media (max-width: 900px) {
   .game-layout {
     grid-template-columns: 1fr;
